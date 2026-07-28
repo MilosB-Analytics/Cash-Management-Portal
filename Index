@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+
+  <style>
+
+    #movementType:disabled{
+    background:#f5f7fb;
+    color:#374151;
+    cursor:not-allowed;
+    opacity:1;
+    font-weight:600;
+}
+
+  /* ==========================================================
+   BOLA GROUP
+   CASH MANAGEMENT PORTAL
+   Professional UI v2.1
+========================================================== */
+
+/* ---------- RESET ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --primary:#1E40AF;
+    --primary-light:#2563EB;
+
+    --success:#16A34A;
+    --warning:#F59E0B;
+    --danger:#DC2626;
+
+    --text:#1F2937;
+    --text-light:#6B7280;
+
+    --border:#E5E7EB;
+
+    --background:#EEF2F7;
+
+    --card:#FFFFFF;
+
+    --shadow:
+        0 15px 40px rgba(15,23,42,.08);
+
+}
+
+/* ---------- PAGE ---------- */
+
+
+html,
+body{
+
+    height:100%;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+   
+    color:var(--text);
+    background-image: url("https://i.imgur.com/CJC3McV.png");
+    background-size: cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    
+
+
+}
+
+/* ---------- MAIN LAYOUT ---------- */
+
+.page{
+
+    display:flex;
+
+    gap:35px;
+
+    padding:35px;
+
+    min-height:100vh;
+    
+    
+   
+
+
+    align-items:flex-start;
+
+}
+
+/* ---------- PANELS ---------- */
+
+.leftPanel{
+
+    flex:0.5;
+    z-index:2;
+    
+    
+
+}
+
+.rightPanel{
+
+    width:420px;
+    z-index:2;
+    
+
+}
+
+/* ---------- CARDS ---------- */
+
+.card,
+.summaryCard,
+.overviewCard{
+
+    background:var(--card);
+
+    border-radius:18px;
+
+    padding:34px;
+
+    box-shadow:var(--shadow);
+
+    border:1px solid var(--border);
+
+    transition:.30s;
+
+}
+
+.card:hover,
+.summaryCard:hover,
+.overviewCard:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+        0 20px 55px rgba(37,99,235,.10);
+
+}
+
+/* ---------- HEADINGS ---------- */
+
+h1{
+
+    color:var(--primary);
+
+    font-size:34px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.subtitle{
+
+    color:var(--text-light);
+
+    margin-bottom:32px;
+
+    font-size:15px;
+
+    letter-spacing:.3px;
+
+}
+
+.summaryCard h2{
+
+    color:var(--primary);
+
+    font-size:26px;
+
+    margin-bottom:10px;
+
+}
+
+/* ---------- LABELS ---------- */
+
+label{
+
+    display:block;
+
+    margin-top:18px;
+
+    margin-bottom:8px;
+
+    color:#374151;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+/* ---------- INPUTS ---------- */
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    background:white;
+
+    border:1px solid #D1D5DB;
+
+    border-radius:12px;
+
+    padding:13px 16px;
+
+    font-size:15px;
+
+    transition:.18s, box-shadow .25s, transform .18s;
+
+}
+
+textarea{
+
+    resize:vertical;
+
+    min-height:110px;
+
+}
+
+input:hover,
+select:hover,
+textarea:hover{
+
+    border-color:#9CA3AF;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    outline:none;
+
+    border-color:var(--primary-light);
+
+    box-shadow:
+
+        0 0 0 4px rgba(37,99,235,.15);
+    transform:translateY(-1px);
+
+
+}
+
+/* ---------- SELECT ---------- */
+
+select{
+
+    cursor:pointer;
+
+}
+
+/* ---------- NUMBER INPUT ---------- */
+
+input[type=number]{
+
+    text-align:right;
+
+}
+
+/* ---------- DATE ---------- */
+
+input[type=date]{
+
+    cursor:pointer;
+
+}
+
+/* ---------- LIVE BALANCE ---------- */
+
+#liveBalance{
+
+    margin-top:22px;
+
+    margin-bottom:10px;
+
+    padding:16px;
+
+    border-radius:12px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            #EFF6FF,
+
+            #FFFFFF
+
+        );
+
+    border-left:5px solid var(--primary);
+
+    font-weight:600;
+
+    color:#1E3A8A;
+
+    transition:.25s;
+
+}
+
+/* ---------- BUTTON ---------- */
+
+button{
+
+    width:100%;
+    margin-top:28px;
+    padding:16px 22px;
+
+    border:none;
+    border-radius:14px;
+
+    background:linear-gradient(
+        135deg,
+        #2563EB,
+        #1D4ED8
+    );
+
+    color:white;
+
+    font-size:16px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+        transform .18s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
+    box-shadow:
+        0 12px 25px rgba(37,99,235,.25);
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 18px 35px rgba(37,99,235,.35);
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+button:disabled{
+
+    cursor:not-allowed;
+
+    opacity:.75;
+
+}
+
+/* ---------- MESSAGE ---------- */
+
+/* ==========================================
+   PROFESSIONAL TOAST NOTIFICATION
+========================================== */
+
+#msg{
+
+    position:fixed;
+
+    bottom:25px;
+
+    right:25px;
+
+    width:360px;
+
+    padding:18px 22px;
+
+    border-radius:14px;
+
+    background:#ffffff;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.18);
+
+    border-left:6px solid #16A34A;
+
+    color:#1F2937;
+
+    font-size:15px;
+
+    line-height:1.5;
+
+    z-index:9999;
+
+    opacity:0;
+
+    transform:translateX(120%);
+
+    transition:
+        transform .35s ease,
+        opacity .35s ease;
+
+    pointer-events:none;
+
+}
+
+#msg.show{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+#msg.success{
+
+    border-left-color:#16A34A;
+
+}
+
+#msg.error{
+
+    border-left-color:#DC2626;
+
+}
+
+#msg.warning{
+
+    border-left-color:#F59E0B;
+
+}
+
+/* ---------- SUMMARY CARD ---------- */
+
+.summaryCard{
+
+    position:sticky;
+
+    top:35px;
+
+}
+
+.summaryImage{
+
+    margin:25px 0;
+
+    text-align:center;
+
+}
+
+#shopImage{
+
+    width:100%;
+
+    max-width:320px;
+
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:14px;
+
+    display:none;
+
+    border:1px solid #D1D5DB;
+
+}
+
+
+.headerInfo{
+
+    
+  
+    border-bottom:1px solid #E5E7EB;
+
+    padding-bottom: 10px;
+
+    font-size:13px;
+
+    color:#6B7280;
+
+    text-align:center;
+    background-color: white;
+
+}
+
+/* ---------- SUMMARY ITEMS ---------- */
+
+.summaryItem{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #F3F4F6;
+
+}
+
+.summaryItem .label{
+
+    color:#6B7280;
+
+    font-weight:600;
+
+}
+
+.summaryItem span:last-child{
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+/* ---------- BALANCE ---------- */
+
+#summaryProjectedBalance{
+
+    color:var(--success);
+
+    font-size:24px;
+
+    font-weight:800;
+
+}
+
+#summaryCurrentBalance{
+
+    color:#374151;
+
+}
+
+/* ---------- STATUS ---------- */
+
+#statusCard{
+
+    margin-top:30px;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    text-align:center;
+
+    font-weight:700;
+
+    background:#EFF6FF;
+
+    color:var(--primary);
+
+    border-left:6px solid var(--primary);
+
+    transition:.25s;
+
+}
+
+/* ---------- HR ---------- */
+
+hr{
+
+    margin:24px 0;
+
+    border:none;
+
+    border-top:1px solid #E5E7EB;
+
+}
+
+/* ---------- SCROLLBAR ---------- */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+    border-radius:10px;
+
+}
+
+
+
+
+/* ==========================================================
+   PREMIUM SUMMARY CARD
+========================================================== */
+
+.summaryHeader{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:25px;
+
+}
+
+.summaryIcon{
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    color:white;
+
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
+
+    transition:.30s;
+
+}
+
+.summarySubtitle{
+
+    color:#6B7280;
+
+    font-size:14px;
+
+    margin-top:4px;
+
+}
+
+.summaryImageContainer{
+
+    text-align:center;
+
+    margin:25px 0;
+
+}
+
+#shopImage{
+
+    width:100%;
+
+    max-width:320px;
+
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:16px;
+
+    display:none;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+
+}
+
+#shopImage{
+
+    opacity:0;
+
+    transition:.45s;
+
+}
+
+#shopImage.visible{
+
+    opacity:1;
+
+}
+
+#summaryShopName{
+
+    margin-top:14px;
+
+    font-weight:700;
+
+    font-size:18px;
+
+    color:#374151;
+
+}
+
+.summarySection{
+
+    border:1px solid #E5E7EB;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    margin-bottom:24px;
+
+}
+
+.summaryItem{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px;
+
+    background:white;
+
+}
+
+.summaryItem:nth-child(even){
+
+    background:#F9FAFB;
+
+}
+
+.summaryItem span{
+
+    color:#6B7280;
+
+    font-weight:600;
+
+}
+
+.summaryItem strong{
+
+    color:#111827;
+
+}
+
+.balanceCard{
+
+    background:linear-gradient(135deg,#EFF6FF,#FFFFFF);
+
+    border-radius:16px;
+
+    padding:22px;
+
+    margin-bottom:22px;
+
+    border:1px solid #DBEAFE;
+
+}
+
+.balanceLabel{
+
+    font-size:13px;
+
+    color:#6B7280;
+
+    text-transform:uppercase;
+
+    letter-spacing:.08em;
+
+}
+
+.balanceDivider{
+
+    height:1px;
+
+    background:#DBEAFE;
+
+    margin:18px 0;
+
+}
+
+#summaryCurrentBalance{
+
+    margin-top:8px;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#374151;
+
+}
+
+#summaryProjectedBalance{
+
+    margin-top:8px;
+
+    font-size:32px;
+
+    font-weight:800;
+
+    color:#16A34A;
+
+}
+
+.amountCard{
+
+    background:#F8FAFC;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    margin-bottom:22px;
+
+    text-align:center;
+
+}
+
+.amountCard span{
+
+    display:block;
+
+    color:#6B7280;
+
+    margin-bottom:8px;
+
+}
+
+.amountCard div{
+
+    font-size:30px;
+
+    font-weight:800;
+
+    color:#2563EB;
+
+}
+
+#statusCard{
+
+    text-align:center;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.summaryCard,
+.overviewCard{
+
+    animation:fadeIn .4s ease;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(12px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+.loading{
+
+    position:relative;
+
+    pointer-events:none;
+
+}
+
+.loading::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:18px;
+
+    top:50%;
+
+    width:18px;
+
+    height:18px;
+
+    margin-top:-9px;
+
+    border-radius:50%;
+
+    border:3px solid rgba(255,255,255,.35);
+
+    border-top-color:white;
+
+    animation:spin .7s linear infinite;
+
+}
+
+@keyframes spin{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+/*=================================================
+DESTINATION OVERVIEW
+=================================================*/
+
+.overviewPanel{
+
+    flex:1;
+
+}
+
+.overviewCard{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+    height:100%;
+
+}
+
+.overviewCard h2{
+
+    margin-bottom:25px;
+
+}
+
+.overviewImageContainer{
+
+    text-align:center;
+
+}
+
+#destinationImage{
+
+    width:100%;
+
+    max-width:320px;
+
+    border-radius:18px;
+
+    display:none;
+
+    transition:.35s;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+
+}
+
+#destinationImage.visible{
+
+    display:block;
+
+    animation:fadeImage .35s ease;
+
+}
+
+#destinationName{
+
+    margin-top:18px;
+
+    text-align:center;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#374151;
+
+}
+
+@keyframes fadeImage{
+
+from{
+
+opacity:0;
+
+transform:translateY(10px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+.historyTable{
+
+    width:100%;
+    border-collapse:collapse;
+    font-size:12px;
+
+}
+
+.historyTable th{
+
+    background:#1e293b;
+    color:white;
+    padding:8px;
+
+}
+
+.historyTable td{
+
+    padding:8px;
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+.historyTable tr:nth-child(even){
+
+    background:#f8fafc;
+
+}
+
+.historyTable tr:hover{
+
+    background:#edf2f7;
+
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:1200px){
+
+.page{
+
+    flex-direction:column;
+
+}
+
+.leftPanel{
+
+    width:100%;
+
+}
+
+.rightPanel{
+
+    width:100%;
+
+}
+
+.summaryCard,
+.overviewCard{
+
+    position:relative;
+
+    top:0;
+
+}
+
+}
+</style>
+  </head>
+
+  <body>
+<div class="headerInfo">
+
+🔒 Secure Transaction
+
+<br><br>
+
+Every submission is permanently
+recorded and audited.
+
+</div>
+<div class="page">
+
+    <!-- LEFT PANEL -->
+
+    <div class="leftPanel">
+
+        <div class="card">
+
+            <h1>Cash Management Portal</h1>
+
+            <p class="subtitle">
+                Bola Group Internal Finance System
+            </p>
+
+            <label>Date</label>
+    <input id="date" type="date">
+
+
+  <label>Action</label>
+<select id="action" onchange="handleActionChange()">
+  <option value="Movement">Cash Movement</option>
+  <option value="Income">Daily Income</option>
+  <option value="Expense">Daily Expense</option>
+  <option value="Correction">Correction</option>
+</select>
+
+<div id="correctionFields" style="display:none;">
+  <label>Destination to Correct</label>
+ <select id="correctionDestination"
+        onchange="scheduleLiveBalanceUpdate();updateDestinationImage(getCurrentDestination());updateDestinationHistory(getCurrentDestination())">
+    <option value="">Select destination</option>
+    <? for (var c = 0; c < destinations.length; c++) { ?>
+      <option value="<?= destinations[c] ?>"><?= destinations[c] ?></option>
+    <? } ?>
+  </select>
+
+  <label>Correction Type</label>
+  <select id="correctionType" onchange="scheduleLiveBalanceUpdate()">
+    <option value="">Select correction type</option>
+    <option value="Increase">Increase Balance</option>
+    <option value="Decrease">Decrease Balance</option>
+  </select>
+</div>
+
+<div id="shopActivityFields" style="display:none;">
+  <label>Shop</label>
+  <select id="activityShop"
+        onchange="scheduleLiveBalanceUpdate();updateDestinationImage(getCurrentDestination());updateDestinationHistory(getCurrentDestination())">
+    <option value="">Select shop</option>
+    <? for (var s = 0; s < activityShops.length; s++) { ?>
+      <option value="<?= activityShops[s] ?>"><?= activityShops[s] ?></option>
+    <? } ?>
+  </select>
+</div>
+
+<div id="movementFields">
+  <label>Current Destination</label>
+  <select id="currentDestination"
+        onchange="handleRouteChange();updateDestinationImage(getCurrentDestination());updateDestinationHistory(getCurrentDestination())">
+  <option value="">Select current location</option>
+  <? for (var i = 0; i < destinations.length; i++) { ?>
+    <option value="<?= destinations[i] ?>"><?= destinations[i] ?></option>
+  <? } ?>
+  </select>
+
+
+    <label>Cash Movement Type</label>
+    <select id="movementType" onchange="handleRouteChange()">
+      <option value="">Select movement type</option>
+      <option value="Withdrawal">Withdrawal</option>
+      <option value="Deposit">Deposit</option>
+    </select>
+
+   <label>End Destination</label>
+    <select id="endDestination" onchange="handleRouteChange()">
+    <option value="">Select end location</option>
+    <? for (var j = 0; j < destinations.length; j++) { ?>
+     <option value="<?= destinations[j] ?>"><?= destinations[j] ?></option>
+    <? } ?>
+    </select>
+  </div>
+
+    <label>Amount</label>
+    <input id="amount" type="number" min="0" step="0.01" oninput="scheduleLiveBalanceUpdate()">
+
+    <label>Validation Amount</label>
+    <input id="validationAmount" type="number" min="0" step="0.01">
+
+    <div id="liveBalance">Live Balance: -</div>
+
+    <label>Description</label>
+    <textarea id="description"></textarea>
+
+<button id="submitButton" type="button" onclick="submitMovement()">Submit</button>
+
+    <div id="msg"></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RIGHT PANEL -->
+
+    <div class="rightPanel">
+
+        <div class="summaryCard">
+
+    <div class="summaryHeader">
+
+        <div class="summaryIcon" id="summaryIcon">
+            💼
+        </div>
+
+        <div>
+
+            <h2>Transaction Preview</h2>
+
+            <p class="summarySubtitle">
+                Live Summary
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="summaryImageContainer">
+
+        <img id="shopImage" src="">
+
+        <div id="summaryShopName">
+            No destination selected
+        </div>
+
+    </div>
+
+    <div class="summarySection">
+
+        <div class="summaryItem">
+            <span>Action</span>
+            <strong id="summaryAction">—</strong>
+        </div>
+
+        <div class="summaryItem">
+            <span>Location</span>
+            <strong id="summaryShop">—</strong>
+        </div>
+
+        <div class="summaryItem">
+            <span>Type</span>
+            <strong id="summaryType">—</strong>
+        </div>
+
+    </div>
+
+    <div class="balanceCard">
+
+        <div class="balanceLabel">
+            Current Balance
+        </div>
+
+        <div id="summaryCurrentBalance">
+            $ 0.00
+        </div>
+
+        <div class="balanceDivider"></div>
+
+        <div class="balanceLabel">
+            Projected Balance
+        </div>
+
+        <div id="summaryProjectedBalance">
+            $ 0.00
+        </div>
+
+    </div>
+
+    <div class="amountCard">
+
+        <span>Transaction Amount</span>
+
+        <div id="summaryAmount">
+            $ 0.00
+        </div>
+
+    </div>
+
+    <div id="statusCard">
+
+        Waiting for input...
+
+    </div>
+
+</div>
+
+    </div>
+    <div class="overviewPanel">
+
+    <div class="overviewCard">
+
+        <h2>Destination Overview</h2>
+
+        <div class="overviewImageContainer">
+
+            <img id="destinationImage" src="" alt="Destination Image">
+
+        </div>
+
+        <div id="destinationName">
+
+            Select a destination
+
+        </div>
+        <hr class="historyDivider">
+
+        <h3>Recent Activity</h3>
+
+        <div id="destinationHistory">
+
+        Select a destination...
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+  <script>
+
+
+let balanceTimer = null;
+let balanceRequestId = 0;
+
+function scheduleLiveBalanceUpdate() {
+  clearTimeout(balanceTimer);
+
+  document.getElementById("liveBalance").innerText = "Calculating...";
+
+  balanceTimer = setTimeout(function() {
+    updateLiveBalance();
+  }, 500);
+  updateSummary();
+}
+
+    function handleRouteChange() {
+    updateDescriptionState();
+    scheduleLiveBalanceUpdate();
+    const destination =
+    document.getElementById("currentDestination").value;
+    updateDestinationHistory(getCurrentDestination())
+    updateDestinationImage(getCurrentDestination());
+  }
+
+function handleActionChange() {
+  const action = document.getElementById("action").value;
+  const movementFields = document.getElementById("movementFields");
+  const shopActivityFields = document.getElementById("shopActivityFields");
+  const correctionFields = document.getElementById("correctionFields");
+  const description = document.getElementById("description");
+
+  movementFields.style.display = "none";
+  shopActivityFields.style.display = "none";
+  correctionFields.style.display = "none";
+
+  description.disabled = false;
+  description.value = "";
+  const movementType = document.getElementById("movementType");
+
+  movementType.disabled = false;
+
+  if (action === "Movement") {
+    const movementType = document.getElementById("movementType");
+
+    movementType.value = "Withdrawal";
+    movementType.disabled = true;
+
+    movementFields.style.display = "block";
+  } else if (action === "Income" || action === "Expense") {
+    shopActivityFields.style.display = "block";
+    
+    description.disabled = false;
+  } else if (action === "Correction") {
+    correctionFields.style.display = "block";
+    description.value = "";
+    description.placeholder = "Reason for correction";
+  }
+
+  scheduleLiveBalanceUpdate();
+  updateDestinationImage(getCurrentDestination());
+  updateDestinationHistory(getCurrentDestination())
+  updateSummary();
+}
+
+
+  function updateDescriptionState() {
+    const currentDestination = document.getElementById("currentDestination").value;
+    const movementType = document.getElementById("movementType").value;
+    const endDestination = document.getElementById("endDestination").value;
+    const description = document.getElementById("description");
+
+    if (
+      currentDestination.indexOf("Drop Safe") === -1 &&
+      movementType === "Withdrawal" &&
+      endDestination.indexOf("Drop Safe") !== -1
+    ) {
+      
+      return;
+    }
+
+    if (description.disabled) {
+      description.value = "";
+    }
+
+    description.disabled = false;
+   
+  }
+
+ function updateLiveBalance() {
+  const action = document.getElementById("action").value;
+  const amount = Number(document.getElementById("amount").value);
+  const liveBalanceEl = document.getElementById("liveBalance");
+
+  let destination = "";
+  let effect = 0;
+
+  if (!amount || amount <= 0) {
+    liveBalanceEl.innerText = "Live Balance: -";
+    return;
+  }
+
+  if (action === "Movement") {
+    destination = document.getElementById("currentDestination").value;
+    const movementType = document.getElementById("movementType").value;
+
+    if (!destination || !movementType) {
+      liveBalanceEl.innerText = "Live Balance: -";
+      return;
+    }
+
+    effect = movementType === "Deposit" ? amount : -amount;
+  }
+
+  if (action === "Income") {
+    destination = document.getElementById("activityShop").value;
+
+    if (!destination) {
+      liveBalanceEl.innerText = "Live Balance: -";
+      return;
+    }
+
+    effect = amount;
+  }
+
+  if (action === "Expense") {
+    destination = document.getElementById("activityShop").value;
+
+    if (!destination) {
+      liveBalanceEl.innerText = "Live Balance: -";
+      return;
+    }
+
+    effect = -amount;
+  }
+
+  if (action === "Correction") {
+    destination = document.getElementById("correctionDestination").value;
+    const correctionType = document.getElementById("correctionType").value;
+
+    if (!destination || !correctionType) {
+      liveBalanceEl.innerText = "Live Balance: -";
+      return;
+    }
+
+    effect = correctionType === "Increase" ? amount : -amount;
+  }
+
+  const requestId = ++balanceRequestId;
+
+  google.script.run
+    .withSuccessHandler(function(currentBalance) {
+      if (requestId !== balanceRequestId) return;
+
+      currentBalance = Number(currentBalance) || 0;
+
+      const projectedBalance = currentBalance + effect;
+
+      liveBalanceEl.innerText =
+        "Current Balance: " + currentBalance +
+        " | After Movement: " + projectedBalance;
+
+
+        document.getElementById("summaryCurrentBalance").textContent =
+    "$ " + currentBalance.toLocaleString(undefined,{
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+    });
+
+document.getElementById("summaryProjectedBalance").textContent =
+    "$ " + projectedBalance.toLocaleString(undefined,{
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+    });
+
+updateSummary();
+
+        
+    })
+    .withFailureHandler(function(err) {
+      liveBalanceEl.innerText = "Live Balance error: " + err.message;
+    })
+    .getBalanceForDestination(destination);
+}
+
+  function submitMovement() {
+  const action = document.getElementById("action").value;
+
+  if (action === "Income" || action === "Expense") {
+    submitShopActivity();
+    return;
+  }
+
+  if (action === "Correction") {
+    submitCorrection();
+    return;
+  }
+
+  submitCashTransfer();
+}
+
+function submitCashTransfer() {
+  const msg = document.getElementById("msg");
+  const button = document.getElementById("submitButton");
+
+  try {
+    msg.innerHTML = "Saving...";
+    button.disabled = true;
+
+    const data = {
+      transactionId: createTransactionId(),
+      date: document.getElementById("date").value,
+      currentDestination: document.getElementById("currentDestination").value,
+      movementType: document.getElementById("movementType").value,
+      endDestination: document.getElementById("endDestination").value,
+      amount: document.getElementById("amount").value,
+      validationAmount: document.getElementById("validationAmount").value,
+      description: document.getElementById("description").value
+    };
+
+ 
+
+      const confirmed = confirm(
+  "Please confirm this cash movement:\n\n" +
+  "Date: " + data.date + "\n" +
+  "From: " + data.currentDestination + "\n" +
+  "Movement Type: " + data.movementType + "\n" +
+  "To: " + data.endDestination + "\n" +
+  "Amount: " + data.amount + "\n" +
+  "Description: " + data.description + "\n\n" +
+  "Submit this movement?"
+);
+
+if (!confirmed) {
+  button.disabled = false;
+  msg.innerHTML = "";
+  return;
+    }
+
+   const btn=document.getElementById("submitButton");
+
+btn.classList.add("loading");
+
+btn.innerText="Submitting...";
+button.disabled = false;
+
+    google.script.run
+      .withSuccessHandler(function(res) {
+
+           showMessage(
+    "Transaction posted successfully."
+);
+
+          btn.classList.remove("loading");
+
+        btn.innerText="Submit";
+        resetTransactionFields();
+          
+      })
+      .withFailureHandler(function(err) {
+        button.disabled = false;
+        btn.classList.remove("loading");
+
+        btn.innerText="Submit";
+       showMessage(
+        err.message,
+        "error"
+      );
+      })
+      .submitCashMovement(data);
+
+  } catch (err) {
+    button.disabled = false;
+    msg.innerHTML = "<div class='error'>HTML error: " + err.message + "</div>";
+  }
+  
+}
+
+function submitShopActivity() {
+  const msg = document.getElementById("msg");
+  const button = document.getElementById("submitButton");
+
+  try {
+    msg.innerHTML = "Saving...";
+    button.disabled = true;
+
+    const data = {
+      transactionId: createTransactionId(),
+      date: document.getElementById("date").value,
+      action: document.getElementById("action").value,
+      shop: document.getElementById("activityShop").value,
+      amount: document.getElementById("amount").value,
+      validationAmount: document.getElementById("validationAmount").value,
+      description: document.getElementById("description").value
+    };
+
+    
+
+        const confirmed = confirm(
+  "Please confirm this entry:\n\n" +
+  "Date: " + data.date + "\n" +
+  "Action: " + data.action + "\n" +
+  "Shop: " + data.shop + "\n" +
+  "Amount: " + data.amount + "\n" +
+  "Description: " + data.description + "\n\n" +
+  "Submit this entry?"
+    );
+
+    if (!confirmed) {
+  button.disabled = false;
+  msg.innerHTML = "";
+  return;
+    }
+
+     const btn=document.getElementById("submitButton");
+
+      btn.classList.add("loading");
+
+      btn.innerText="Submitting...";
+      button.disabled = false;
+
+
+    google.script.run
+      .withSuccessHandler(function(res) {
+        button.disabled = false;
+        
+        
+        showMessage(
+    "Transaction posted successfully."
+);
+
+          btn.classList.remove("loading");
+
+        btn.innerText="Submit";
+        resetTransactionFields();
+
+       
+      })
+      .withFailureHandler(function(err) {
+        button.disabled = false;
+        button.disabled = false;
+        btn.classList.remove("loading");
+        btn.innerText="Submit";
+        showMessage(
+          err.message,
+          "error"
+        );
+      })
+      .submitShopActivity(data);
+
+  } catch (err) {
+    button.disabled = false;
+    msg.innerHTML = "<div class='error'>HTML error: " + err.message + "</div>";
+  }
+}
+
+function submitCorrection() {
+  const msg = document.getElementById("msg");
+  const button = document.getElementById("submitButton");
+
+  try {
+    msg.innerHTML = "Saving...";
+    button.disabled = true;
+
+    const data = {
+      transactionId: createTransactionId(),
+      date: document.getElementById("date").value,
+      destination: document.getElementById("correctionDestination").value,
+      correctionType: document.getElementById("correctionType").value,
+      amount: document.getElementById("amount").value,
+      validationAmount: document.getElementById("validationAmount").value,
+      description: document.getElementById("description").value
+    };
+
+   
+
+    const confirmed = confirm(
+  "Please confirm this correction:\n\n" +
+  "Date: " + data.date + "\n" +
+  "Destination: " + data.destination + "\n" +
+  "Correction Type: " + data.correctionType + "\n" +
+  "Amount: " + data.amount + "\n" +
+  "Reason: " + data.description + "\n\n" +
+  "Submit this correction?"
+  );
+
+  if (!confirmed) {
+  button.disabled = false;
+  msg.innerHTML = "";
+  return;
+  }
+
+     const btn=document.getElementById("submitButton");
+
+    btn.classList.add("loading");
+
+    btn.innerText="Submitting...";
+    button.disabled = false;
+    
+
+
+    google.script.run
+      .withSuccessHandler(function(res) {
+        button.disabled = false;
+ 
+
+       showMessage(
+          "Transaction posted successfully."
+        );
+
+          btn.classList.remove("loading");
+
+        btn.innerText="Submit";
+        resetTransactionFields();
+      })
+
+
+      .withFailureHandler(function(err) {
+        button.disabled = false;
+        btn.classList.remove("loading");
+        btn.innerText="Submit";
+        showMessage(
+          err.message,
+          "error"
+        );
+
+      })
+      .submitCorrection(data);
+
+  } catch (err) {
+    button.disabled = false;
+    msg.innerHTML = "<div class='error'>HTML error: " + err.message + "</div>";
+  }
+ 
+
+}
+
+  function createTransactionId() {
+  return "TX-" + new Date().getTime() + "-" + Math.floor(Math.random() * 100000);
+}
+
+function updateSummary() {
+
+    // ---------- ACTION ----------
+    const action = document.getElementById("action")?.value || "-";
+    document.getElementById("summaryAction").textContent = action;
+    const icon=document.getElementById("summaryIcon");
+
+
+switch(action){
+
+case "Income":
+
+icon.innerHTML="💰";
+
+icon.style.background="linear-gradient(135deg,#16A34A,#22C55E)";
+
+break;
+
+case "Expense":
+
+icon.innerHTML="💸";
+
+icon.style.background="linear-gradient(135deg,#EA580C,#FB923C)";
+
+break;
+
+case "Movement":
+
+icon.innerHTML="🔄";
+
+icon.style.background="linear-gradient(135deg,#2563EB,#1D4ED8)";
+
+break;
+
+case "Correction":
+
+icon.innerHTML="🛠";
+
+icon.style.background="linear-gradient(135deg,#DC2626,#EF4444)";
+
+break;
+
+}
+    
+
+    
+
+    // ---------- LOCATION / SHOP ----------
+  let summaryLocation = "-";
+
+  switch (action) {
+
+    case "Income":
+    case "Expense":
+        summaryLocation =
+            document.getElementById("activityShop")?.value || "-";
+        break;
+
+    case "Movement":
+
+        const from =
+            document.getElementById("currentDestination")?.value || "?";
+
+        const to =
+            document.getElementById("endDestination")?.value || "?";
+
+        summaryLocation = from + " → " + to;
+        break;
+
+    case "Correction":
+
+        summaryLocation =
+            document.getElementById("correctionDestination")?.value || "-";
+        break;
+
+  }
+
+  document.getElementById("summaryShop").textContent = summaryLocation;
+
+    // ---------- TYPE ----------
+    let type = "-";
+
+    if (action === "Movement") {
+
+        type =
+            document.getElementById("movementType")?.value ||
+            "-";
+
+    }
+
+    if (action === "Correction") {
+
+        type =
+            document.getElementById("correctionType")?.value ||
+            "-";
+
+    }
+
+    document.getElementById("summaryType").textContent = type;
+
+    // ---------- AMOUNT ----------
+
+    const amount =
+        Number(document.getElementById("amount").value) || 0;
+
+    document.getElementById("summaryAmount").textContent =
+        "$ " + amount.toLocaleString(undefined,{
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        });
+
+    // ---------- PROJECTED BALANCE ----------
+
+
+    // ---------- STATUS ----------
+
+    const status = document.getElementById("statusCard");
+
+    if(amount>0){
+
+        status.innerHTML="🟢 Ready to Submit";
+
+        status.style.background="#ecfdf5";
+
+        status.style.borderLeftColor="#22c55e";
+
+        status.style.color="#166534";
+
+    }
+    else{
+
+        status.innerHTML="🟡 Waiting for Amount";
+
+        status.style.background="#fff7ed";
+
+        status.style.borderLeftColor="#f59e0b";
+
+        status.style.color="#92400e";
+
+    }
+
+    document.getElementById("summaryShopName").innerText =
+    document.getElementById("summaryShop").innerText;
+    
+
+}
+
+function showMessage(message,type="success"){
+
+    const msg=document.getElementById("msg");
+
+    msg.className="";
+
+    msg.classList.add(type);
+
+    msg.classList.add("show");
+
+    let icon="";
+
+    switch(type){
+
+        case "success":
+            icon="✅";
+            break;
+
+        case "error":
+            icon="❌";
+            break;
+
+        case "warning":
+            icon="⚠️";
+            break;
+
+    }
+
+    msg.innerHTML=`
+        <div style="font-size:17px;font-weight:700;margin-bottom:6px;">
+            ${icon} ${type.charAt(0).toUpperCase()+type.slice(1)}
+        </div>
+
+        <div>
+            ${message}
+        </div>
+    `;
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer=setTimeout(function(){
+
+        msg.classList.remove("show");
+
+    },3500);
+
+}
+
+const shopImages = {
+
+    "Bulawayo Sekusile":"https://i.imgur.com/uFazp6V.jpeg",
+
+    "Kadoma":"https://i.imgur.com/tzVobP5.jpeg",
+
+    "Main Safe":"https://i.imgur.com/UzWvGFI.png",
+
+    "Drop Safe - Bulawayo":"https://i.imgur.com/aEF6i5U.jpeg",
+
+    "Machipisa":"https://i.imgur.com/aazPk1u.jpeg",
+
+    "Makoni":"https://i.imgur.com/XnuOuJj.jpeg",
+
+    "Kuwadzana":"https://i.imgur.com/RWvz6Ih.png",
+
+    "Drop Safe - Kadoma":"https://i.imgur.com/mjeArWi.png",
+    
+    "Marketsquare":"https://i.imgur.com/XtXoS7H.jpeg",
+
+    "Mbare":"https://i.imgur.com/5hWzctG.jpeg",
+
+    "Tafara":"https://i.imgur.com/C6Cz3HL.jpeg",
+
+    "Small Safe":"https://i.imgur.com/Cv0EAmp.jpeg",
+
+    "Default":"https://i.imgur.com/CJC3McV.png"
+
+};
+
+function updateDestinationImage(destination){
+
+    const img = document.getElementById("destinationImage");
+
+    const name = document.getElementById("destinationName");
+
+    img.classList.remove("visible");
+
+    img.src = shopImages[destination] || shopImages["Default"];
+
+    img.onload = function(){
+
+        img.classList.add("visible");
+
+    };
+
+    name.innerText = destination || "Select a destination";
+
+}
+
+function updateDestinationPanel(){
+
+    const destination = getSelectedDestination();
+
+    const img = document.getElementById("destinationImage");
+
+    img.src =
+        shopImages[destination] ||
+        shopImages["Default"];
+
+    updateDestinationHistory(destination);
+
+}
+
+function getCurrentDestination(){
+
+    const action = document.getElementById("action").value;
+
+    switch(action){
+
+        case "Movement":
+            return document.getElementById("currentDestination").value;
+
+        case "Income":
+        case "Expense":
+            return document.getElementById("activityShop").value;
+
+        case "Correction":
+            return document.getElementById("correctionDestination").value;
+
+        default:
+            return "";
+    }
+
+}
+
+
+
+
+function updateDestinationHistory(destination){
+
+    google.script.run
+
+        .withSuccessHandler(function(html){
+
+            document.getElementById("destinationHistory").innerHTML = html;
+        })
+
+        .withFailureHandler(function(err){
+
+            document.getElementById("destinationHistory").innerHTML =
+                "<b>Error:</b> " + err.message;
+
+        })
+
+        .getDestinationHistory(destination);
+        
+
+}
+
+
+function resetTransactionFields() {
+
+    document.getElementById("amount").value = "";
+
+    document.getElementById("validationAmount").value = "";
+
+    document.getElementById("description").value = "";
+
+    document.getElementById("amount").focus();
+
+    scheduleLiveBalanceUpdate();
+
+}
+
+function initializePage() {
+
+    handleActionChange();
+
+    updateSummary();
+
+    scheduleLiveBalanceUpdate();
+
+    updateDestinationImage();
+
+}
+document.addEventListener("DOMContentLoaded", initializePage);
+
+</script
+
+</body>
+</html>
